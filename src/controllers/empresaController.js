@@ -27,3 +27,8 @@ function cadastrar(req, res) {
         }
     });
 }
+
+module.exports = {
+    buscarCnpj,
+    cadastrar
+}

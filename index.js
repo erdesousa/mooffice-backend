@@ -11,11 +11,11 @@ const app = express();
 
 // Importa as rotas
 const indexRouter = require("./src/routes/index");
-const usuarioRouter = require("./src/routes/usuarios");
-const avisosRouter = require("./src/routes/avisos");
-const medidoresRouter = require("./src/routes/medidores");
-const leiturasRouter = require("./src/routes/medidas");
-const limitesRouter = require("./src/routes/limites");
+// const usuarioRouter = require("./src/routes/usuarios");
+// const avisosRouter = require("./src/routes/avisos");
+// const medidoresRouter = require("./src/routes/medidores");
+// const leiturasRouter = require("./src/routes/medidas");
+// const limitesRouter = require("./src/routes/limites");
 const empresasRouter = require("./src/routes/empresas");
 
 app.use(express.json());
@@ -24,11 +24,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidores", medidoresRouter);
-app.use("/leituras", leiturasRouter);
-app.use("/limites", limitesRouter);
+// app.use("/usuarios", usuarioRouter);
+// app.use("/avisos", avisosRouter);
+// app.use("/medidores", medidoresRouter);
+// app.use("/leituras", leiturasRouter);
+// app.use("/limites", limitesRouter);
 app.use('/empresas', empresasRouter);
 
 app.listen(PORTA_APP, () => {
@@ -40,8 +40,5 @@ app.listen(PORTA_APP, () => {
                                      
 
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
-    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n
-    \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
-    \tSe .:producao:. você está se conectando ao banco remoto. \n\n
-    \t\tPara alterar o ambiente, defina a variável de ambiente NODE_ENV para 'production' ou 'development'\n\n`);
+    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n`);
 });
