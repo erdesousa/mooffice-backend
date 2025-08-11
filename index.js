@@ -14,7 +14,7 @@ const indexRouter = require("./src/routes/index");
 const usuarioRouter = require("./src/routes/usuarios");
 // const avisosRouter = require("./src/routes/avisos");
 const medidoresRouter = require("./src/routes/medidores");
-// const leiturasRouter = require("./src/routes/medidas");
+const leiturasRouter = require("./src/routes/medidas");
 // const limitesRouter = require("./src/routes/limites");
 const empresasRouter = require("./src/routes/empresas");
 
@@ -27,7 +27,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 // app.use("/avisos", avisosRouter);
 app.use("/medidores", medidoresRouter);
-// app.use("/leituras", leiturasRouter);
+app.use("/leituras", leiturasRouter);
 // app.use("/limites", limitesRouter);
 app.use('/empresas', empresasRouter);
 
