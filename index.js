@@ -11,7 +11,7 @@ const app = express();
 
 // Importa as rotas
 const indexRouter = require("./src/routes/index");
-// const usuarioRouter = require("./src/routes/usuarios");
+const usuarioRouter = require("./src/routes/usuarios");
 // const avisosRouter = require("./src/routes/avisos");
 // const medidoresRouter = require("./src/routes/medidores");
 // const leiturasRouter = require("./src/routes/medidas");
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/", indexRouter);
-// app.use("/usuarios", usuarioRouter);
+app.use("/usuarios", usuarioRouter);
 // app.use("/avisos", avisosRouter);
 // app.use("/medidores", medidoresRouter);
 // app.use("/leituras", leiturasRouter);
