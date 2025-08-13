@@ -45,7 +45,11 @@ function login(req, res) {
         usuarioModel.login(email, senha)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    if (resultado.length == 1) {
+                        res.json({usuario: resultado[0]});
+                    } else {
+                        res.status(401).json({message: "Email ou senha inválidos!"});
+                    }
                 }
             ).catch(
                 function (erro) {
