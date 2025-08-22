@@ -21,8 +21,26 @@ function cadastrar(req, res) {
         if (resultado.length > 0) {
             res.status(401).json({ mensagem: `A empresa com o CNPJ: ${cnpj} já existe` });
         } else {
-            empresaModel.cadastrar(nome_empresa, cnpj, telefone, email, endereco, cidade, estado).then((resultado) => {
-                res.status(201).json({ empresa: resultado[0] });
+            empresaModel.cadastrar(nome_empresa, cnpj, telefone, email, endereco, cidade, estado).then((resultadoInsert) => {
+
+                const id = resultadoInsert.insertId; 
+
+                const empresaCriada = {
+                    id_empresa: id,
+                    nome_empresa,
+                    cnpj,
+                    telefone,
+                    email,
+                    endereco,
+                    cidade,
+                    estado
+                };
+                
+                res.status(201).json({ 
+                    success: true,
+                    message: "Empresa cadastrada com sucesso",
+                    data: empresaCriada
+                });
             });
         }
     });
